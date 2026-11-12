@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>PayWindow — Budget by paycheck, not just calendar month</title>
   <meta name="description" content="PayWindow turns each paycheck into its own budget window. Track income, expenses and savings goals. No bank login required." />
-  <link rel="icon" href="assets/app-icon.png" />
-  <link rel="apple-touch-icon" href="assets/app-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;600;700;800&family=Karla:wght@400;500;600;700&display=swap" />
+  <link rel="preload" as="image" href="assets/hero-landscape.webp" />
   <link rel="stylesheet" href="style.css" />
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -19,7 +23,7 @@
    <div class="top">
     <header class="mast">
       <div class="brand">
-        <img src="assets/app-icon.png" alt="" />
+        <img src="assets/app-icon-64.png" alt="" width="32" height="32" />
         <span>PayWindow</span>
       </div>
       <nav>
@@ -47,9 +51,9 @@
           <a class="btn-secondary" href="#newsletter">Get notified of updates</a>
         </div>
       </div>
-      <div class="phone-stage tilt">
+      <div class="phone-stage">
         <div class="phone">
-          <img src="assets/screenshots/dashboard.png" alt="PayWindow dashboard showing the current pay window's income, expenses, and savings" />
+          <img src="assets/screenshots/dashboard-v2-540.webp" srcset="assets/screenshots/dashboard-v2-540.webp 540w, assets/screenshots/dashboard-v2-800.webp 800w" sizes="248px" width="540" height="1168" alt="PayWindow dashboard showing the current pay window's income, expenses, and savings" fetchpriority="high" />
         </div>
         <div class="badge"><span class="swatch"></span>Personal finance simplified</div>
       </div>
@@ -107,7 +111,7 @@
         <div class="split-visual">
           <div class="phone-stage">
             <div class="phone">
-              <img src="assets/screenshots/income.png" alt="PayWindow income tab showing multiple income sources with one marked Primary" loading="lazy" />
+              <img src="assets/screenshots/income-v2-540.webp" srcset="assets/screenshots/income-v2-540.webp 540w, assets/screenshots/income-v2-800.webp 800w" sizes="248px" width="540" height="1168" alt="PayWindow income tab showing multiple income sources with one marked Primary" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -125,7 +129,7 @@
         <div class="split-visual">
           <div class="phone-stage">
             <div class="phone">
-              <img src="assets/screenshots/expenses.png" alt="PayWindow expenses tab showing bills with different repeat schedules" loading="lazy" />
+              <img src="assets/screenshots/expenses-v2-540.webp" srcset="assets/screenshots/expenses-v2-540.webp 540w, assets/screenshots/expenses-v2-800.webp 800w" sizes="248px" width="540" height="1168" alt="PayWindow expenses tab showing bills with different repeat schedules" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -143,7 +147,7 @@
         <div class="split-visual">
           <div class="phone-stage">
             <div class="phone">
-              <img src="assets/screenshots/savings.png" alt="PayWindow savings tab showing multiple parallel savings goals" loading="lazy" />
+              <img src="assets/screenshots/savings-v2-540.webp" srcset="assets/screenshots/savings-v2-540.webp 540w, assets/screenshots/savings-v2-800.webp 800w" sizes="248px" width="540" height="1168" alt="PayWindow savings tab showing multiple parallel savings goals" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -253,7 +257,7 @@
     <footer>
       <div class="foot-row">
         <div class="brand">
-          <img src="assets/app-icon.png" alt="" style="width:24px;height:24px;border-radius:6px;" />
+          <img src="assets/app-icon-64.png" alt="" width="24" height="24" loading="lazy" style="width:24px;height:24px;border-radius:6px;" />
           <span style="font-family:'Schibsted Grotesk';font-weight:700;">PayWindow</span>
         </div>
         <div class="foot-links">

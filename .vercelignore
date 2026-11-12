@@ -1,0 +1,5 @@
+# Source originals and tooling: not served by the site
+assets/screenshots/src/
+scripts/
+.idea/
+.DS_Store
