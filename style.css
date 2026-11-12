@@ -89,7 +89,11 @@ body { overflow-x: clip; }
   text-decoration: none; border: 1.5px solid var(--rule);
 }
 .btn-primary svg, .btn-secondary svg { width: 18px; height: 18px; flex: none; }
-.ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+.ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+/* Official Apple badge: never recolor or alter; min 40px tall, clear space >= 1/4 height */
+.store-badge { display: inline-flex; flex: none; border-radius: 9px; }
+.store-badge img { display: block; height: 56px; width: auto; }
+.store-badge:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
 
 /* Hero */
 .hero { position: relative; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 36px; align-items: center; padding-top: 20px; }
