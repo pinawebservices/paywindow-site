@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Opening Your Worksheet | PayWindow</title>
+  <link rel="canonical" href="https://www.paywindowapp.com/worksheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@600;700&family=Karla:wght@400;600;700&display=swap" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="/worksheet.css" />
+  <style>
+    .ws-hop { max-width: 520px; margin: 0 auto; text-align: center; padding-block: 56px; }
+    .ws-hop h1 { font-size: 1.7rem; margin: 0 0 12px; }
+    .ws-hop p { color: var(--ink-soft); line-height: 1.6; margin: 0 0 24px; }
+    .ws-hop .tip { font-size: 0.92rem; margin: 24px 0 0; }
+    .ws-hop .back { display: inline-block; margin-top: 28px; font-weight: 600; color: var(--blue); }
+  </style>
+  <!-- Vercel Web Analytics: this page's pageview is the "download click" count (Hobby plan has no custom events) -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="mast">
+      <a class="brand" href="/" aria-label="PayWindow home">
+        <img src="/assets/app-icon-64.png" alt="" width="32" height="32" />
+        <span>PayWindow</span>
+      </a>
+    </header>
+    <main class="ws-hop">
+      <h1>Opening your worksheet…</h1>
+      <p>If it doesn't open on its own, tap the button below.</p>
+      <a class="btn-primary ws-download" id="pdf-link" href="/downloads/paywindow-budget-worksheet.pdf">Open the PDF</a>
+      <p class="tip">On iPhone, tap the Share button to print it or save it to Files.</p>
+      <a class="back" href="/worksheet">Back to the worksheet page</a>
+    </main>
+  </div>
+  <script>
+    (function () {
+      var pdf = document.getElementById('pdf-link').href;
+      var opened = false;
+      function open() { if (!opened) { opened = true; location.replace(pdf); } }
+      // Give the analytics beacon a moment to send, then open the PDF in place.
+      // replace() keeps this page out of history, so Back returns to /worksheet.
+      window.addEventListener('load', function () { setTimeout(open, 350); });
+      setTimeout(open, 1500); // safety net if 'load' is slow (e.g. blocked analytics)
+      // Restored from the back-forward cache: don't auto-open again.
+      window.addEventListener('pageshow', function (e) { if (e.persisted) opened = true; });
+    })();
+  </script>
+</body>
+</html>

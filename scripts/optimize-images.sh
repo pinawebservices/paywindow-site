@@ -35,6 +35,25 @@ for src in "${srcs[@]}"; do
   done
 done
 
+# Worksheet preview + social image, rendered from the real PDF (macOS Quick Look renders PDFs at high res).
+pdf=downloads/paywindow-budget-worksheet.pdf
+if [ -f "$pdf" ]; then
+  tmp=$(mktemp -d)
+  qlmanage -t -s 2000 -o "$tmp" "$pdf" >/dev/null 2>&1
+  page="$tmp/$(basename "$pdf").png"
+  mkdir -p assets/worksheet
+  for w in 600 1000; do
+    "${SHARP[@]}" -i "$page" -o "assets/worksheet/preview-${w}.webp" --format webp --quality 85 resize "$w" >/dev/null
+    echo "assets/worksheet/preview-${w}.webp"
+  done
+  # 1200x630 Open Graph image: worksheet centred on the site's paper background
+  "${SHARP[@]}" -i "$page" -o "$tmp/og-sheet.png" resize 440 570 --fit inside >/dev/null
+  "${SHARP[@]}" -i assets/paper-texture.webp -o "$tmp/og-bg.png" --format png resize 1200 630 --fit cover >/dev/null
+  "${SHARP[@]}" -i "$tmp/og-bg.png" -o assets/worksheet/og.jpg --format jpeg --quality 85 composite "$tmp/og-sheet.png" --gravity centre >/dev/null
+  echo assets/worksheet/og.jpg
+  rm -rf "$tmp"
+fi
+
 icon=assets/app-icon.png
 "${SHARP[@]}" -i "$icon" -o assets/app-icon-64.png       --format png resize 64  >/dev/null && echo assets/app-icon-64.png
 "${SHARP[@]}" -i "$icon" -o assets/favicon-32.png        --format png resize 32  >/dev/null && echo assets/favicon-32.png
